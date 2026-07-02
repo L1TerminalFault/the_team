@@ -2,12 +2,13 @@ import { Canvas, useFrame } from "@react-three/fiber";
 import { useRef } from "react";
 import type * as THREE from "three";
 
-export const cubeState = { speedMultiplier: 1 };
+export const cubeState = { speedMultiplier: 1, scale: 1 };
 import {
   OrbitControls,
   Environment,
   RoundedBox,
   MeshTransmissionMaterial,
+  PresentationControls
 } from "@react-three/drei";
 
 function GlassCube() {
@@ -18,6 +19,8 @@ function GlassCube() {
       meshRef.current.rotation.x += delta * 0.15 * cubeState.speedMultiplier;
       meshRef.current.rotation.y += delta * 0.25 * cubeState.speedMultiplier;
       meshRef.current.rotation.z += delta * 0.12 * cubeState.speedMultiplier;
+      
+      meshRef.current.scale.set(cubeState.scale, cubeState.scale, cubeState.scale);
     }
   });
 
@@ -63,25 +66,28 @@ export default function GlassCubeComponent({
           powerPreference: "high-performance",
         }}
         style={{ background: "transparent" }}
-        className="pointer-events-auto"
+        className="pointer-events-auto cursor-grab active:cursor-grabbing"
       >
         {/* LIGHTING (minimal) */}
         <ambientLight intensity={0.6} />
         <directionalLight position={[5, 5, 5]} intensity={1.2} />
 
-        {/* OBJECT */}
-        <GlassCube />
+        {/* OBJECT wrapped inside interactive PresentationControls */}
+        <PresentationControls
+          global={false} // Only spin on dragging the actual object wrapper
+          cursor={true}
+          snap={true} // Snap back to its normal rotation after drag!
+          speed={2} // Speed multiplier
+          zoom={1}
+          rotation={[0, 0, 0]}
+          polar={[-Math.PI / 3, Math.PI / 3]} // Vertical limits
+          azimuth={[-Math.PI / 1.4, Math.PI / 2]} // Horizontal limits
+        >
+          <GlassCube />
+        </PresentationControls>
 
         {/* ENV (keep but it’s important for glass) */}
         <Environment preset="studio" />
-
-        {/* CONTROLS */}
-        <OrbitControls
-          autoRotate={false}
-          enablePan={false}
-          enableZoom={false}
-          enableRotate={true}
-        />
       </Canvas>
     </div>
   );

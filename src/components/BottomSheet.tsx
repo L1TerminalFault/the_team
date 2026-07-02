@@ -1,12 +1,14 @@
 "use client";
 
 import { MdClose } from "react-icons/md";
-import { useModal } from "../context/ModalContext";
+import AnimatedLink from "./AnimatedLink";
+import { useModalStore } from "@/store/useModalStore";
 import gsap from "gsap";
 import { useEffect, useRef } from "react";
 
 export default function BottomSheet({ children }: { children: React.ReactNode }) {
-  const { setActiveModal } = useModal();
+  const BottomSheetRef = useRef<HTMLDivElement>(null);
+  const { setActiveModal } = useModalStore();
   const sheetRef = useRef<HTMLDivElement>(null);
   const backdropRef = useRef<HTMLDivElement>(null);
 
