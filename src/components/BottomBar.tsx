@@ -59,7 +59,7 @@ export default function BottomBar() {
   return (
     <div className="py-10 px-20 h-[80%] w-full flex items-end justify-end fixed bottom-0 left-0 z-1 pointer-events-none">
       <div className="flex gap-15 w-1/2 h-full justify-end items-end pointer-events-auto">
-        <div className="flex items-center font-medium text-gray-400/80 w-full/ /gap-8 /justify-between text-base">
+        <div className="hidden md:flex items-center font-medium text-gray-400/80 w-full/ /gap-8 /justify-between text-base">
           <AnimatedLink text="Terms Of Service" className_="px-4" onClick={() => setActiveModal("terms")} />
           <AnimatedLink text="Cookie Preferences" className_="px-4" onClick={() => setActiveModal("cookie")} />
           <AnimatedLink text="Privacy Policy" className_="px-4" onClick={() => setActiveModal("privacy")} />
