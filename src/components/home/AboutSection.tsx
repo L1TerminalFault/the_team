@@ -11,7 +11,7 @@ export default function AboutSection() {
         From striking algorithmic identities to hypersonic web hubs and our proprietary ERP nexus, we engineer integrated combat systems for businesses preparing to dominate international domains.
       </div>
       
-      <div className="flex flex-col gap-8 mt-4">
+      <div className="flex hidden flex-col gap-8 mt-4">
         <div className="text-sm font-semibold tracking-widest uppercase text-gray-500">
           Our Founders
         </div>
