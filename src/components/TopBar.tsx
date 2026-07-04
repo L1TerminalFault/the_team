@@ -18,69 +18,64 @@ export default function TopBar() {
 
   const { setActiveModal } = useModalStore();
   useEffect(() => {
-    const ref = document.getElementById("ref");
-    const tl = gsap.timeline({});
-    gsap.set(".top-text", { opacity: 1 });
+    const tl = gsap.timeline({ defaults: { ease: "power3.inOut" } });
 
-    tl.fromTo(
-      ".icon",
-      {
-        scale: 2,
-        opacity: 0,
-      },
-      {
+    // Ensure splash is visible
+    gsap.set(".intro-splash", { opacity: 1, pointerEvents: "all" });
+    gsap.set(".splash-icon", { scale: 0, opacity: 0 });
+    gsap.set(".splash-tagline", { opacity: 0, y: 20 });
+    gsap.set(".splash-brand", { opacity: 0, y: 10 });
+
+    tl
+      // Phase 1: Icon blooms in at center
+      .to(".splash-icon", {
         scale: 1,
         opacity: 1,
-        duration: 2,
+        duration: 1.2,
+        ease: "elastic.out(1, 0.6)",
+      })
+      // Phase 2: Tagline fades in below
+      .to(".splash-brand", {
+        opacity: 1,
+        y: 0,
+        duration: 0.6,
+      }, "-=0.4")
+      .to(".splash-tagline", {
+        opacity: 1,
+        y: 0,
+        duration: 0.6,
+      }, "-=0.3")
+      // Phase 3: Hold for a beat
+      .to({}, { duration: 0.6 })
+      // Phase 4: Icon shrinks and moves to topbar corner
+      .to(".splash-icon", {
+        scale: 0.35,
+        x: () => {
+          const target = document.getElementById("ref");
+          if (!target) return -window.innerWidth / 2 + 80;
+          const rect = target.getBoundingClientRect();
+          return rect.left + 16 - window.innerWidth / 2;
+        },
+        y: () => {
+          const target = document.getElementById("ref");
+          if (!target) return -window.innerHeight / 2 + 50;
+          const rect = target.getBoundingClientRect();
+          return rect.top + 16 - window.innerHeight / 2;
+        },
+        duration: 0.8,
         ease: "power4.inOut",
-      },
-    )
-      .fromTo(
-        ".icon",
-        {
-          size: 400,
+      })
+      .to(".splash-tagline", { opacity: 0, y: -10, duration: 0.3 }, "-=0.8")
+      .to(".splash-brand", { opacity: 0, y: -10, duration: 0.3 }, "-=0.7")
+      // Phase 5: Overlay fades away
+      .to(".intro-splash", {
+        opacity: 0,
+        duration: 0.5,
+        ease: "power2.out",
+        onComplete: () => {
+          gsap.set(".intro-splash", { pointerEvents: "none", display: "none" });
         },
-        {
-          size: 45,
-        },
-      )
-      .fromTo(
-        ".text",
-        {
-          maxWidth: "0px",
-        },
-        {
-          maxWidth: `1000px`,
-          duration: 1.5,
-          ease: "power1.out",
-        },
-      )
-      .fromTo(
-        ".top-text",
-        {
-          width: "100vw",
-          top: 0,
-          left: 0,
-          height: "100vh",
-          z: 100,
-          // borderRadius: "0%",
-          fontSize: "200px",
-          opacity: 1,
-        },
-        {
-          // width: `${ref?.getBoundingClientRect().width + 8}px`,
-          // height: `${ref?.getBoundingClientRect().height}px`,
-          // fontSize: "24px",
-          // top: "40px",
-          // left: "80px",
-          // borderRadius: "9999px",
-          opacity: 0,
-          delay: 0.5,
-          z: -500,
-          duration: 2,
-          ease: "power4.inOut",
-        },
-      );
+      });
   }, []);
 
   const [menuOpen, setMenuOpen] = useState(false);
@@ -88,10 +83,13 @@ export default function TopBar() {
   return (
     <>
       <div className="py-10 px-8 md:px-20 w-full flex items-center justify-between fixed top-0 left-0 z-40 bg-transparent">
-        <div className="top-text hidden pointer-events-none fixed opacity-1 justify-center backdrop-blur-2xl bg-black/50 z-95 overflow-visible text-2xl font-extrabold text-gray-300 flex flex-row items-center gap-20">
-          <SiTechcrunch className="icon size-100" />
-          <div className="text inline-block overflow-x-clip h-max whitespace-nowrap tracking-tighter leading-3.75">
+        <div className="intro-splash fixed inset-0 z-[95] flex flex-col items-center justify-center bg-black pointer-events-none opacity-0">
+          <SiTechcrunch className="splash-icon size-28 md:size-36 text-white" />
+          <div className="splash-brand mt-6 text-2xl md:text-3xl font-extrabold tracking-tight text-white">
             {company_name}
+          </div>
+          <div className="splash-tagline mt-3 text-sm md:text-base font-light tracking-widest uppercase text-gray-500">
+            Always approaching perfection
           </div>
         </div>
 

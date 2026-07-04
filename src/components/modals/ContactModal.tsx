@@ -1,18 +1,65 @@
 import React from "react";
+import { MdEmail, MdPhone } from "react-icons/md";
+import { FaTelegramPlane, FaWhatsapp } from "react-icons/fa";
+
+const contactLinks = [
+  {
+    icon: MdEmail,
+    label: "Email",
+    value: "reach@asymptotecreative.com",
+    href: "mailto:reach@asymptotecreative.com",
+  },
+  {
+    icon: MdPhone,
+    label: "Phone",
+    value: "+251 944 806 913",
+    href: "tel:+251944806913",
+  },
+  {
+    icon: FaWhatsapp,
+    label: "WhatsApp",
+    value: "+251 944 806 913",
+    href: "https://wa.me/251944806913",
+    external: true,
+  },
+  {
+    icon: FaTelegramPlane,
+    label: "Telegram",
+    value: "@AsymptoteCreative",
+    href: "https://t.me/AsymptoteCreative",
+    external: true,
+  },
+];
 
 export default function ContactModal() {
   return (
     <>
       <h1 className="text-4xl font-bold mb-8 text-white">Contact Us</h1>
-      <div className="prose prose-invert max-w-none text-gray-300">
-        <p className="text-lg mb-6">Have a project in mind? Looking to scale your web infrastructure or skyrocket your social media presence? Reach out to our team of experts.</p>
-        <div className="flex flex-col gap-6 w-full max-w-md">
-          <input className="w-full bg-white/10 p-4 rounded-xl outline-none focus:ring-2 focus:ring-white/20 text-white" placeholder="Your Name" />
-          <input className="w-full bg-white/10 p-4 rounded-xl outline-none focus:ring-2 focus:ring-white/20 text-white" placeholder="Your Email" />
-          <input className="w-full bg-white/10 p-4 rounded-xl outline-none focus:ring-2 focus:ring-white/20 text-white" placeholder="Project Type (e.g. Web App, Social Media, Full Stack)" />
-          <textarea className="w-full bg-white/10 p-4 rounded-xl outline-none focus:ring-2 focus:ring-white/20 text-white" rows={5} placeholder="Describe your vision..."></textarea>
-          <button className="bg-white text-black font-bold py-4 rounded-xl hover:bg-gray-200 transition">Initiate Contact</button>
-        </div>
+      <p className="text-gray-400 text-lg mb-10 max-w-lg">
+        Reach out through any of the channels below — we&apos;d love to hear about your project.
+      </p>
+      <div className="flex flex-col gap-4">
+        {contactLinks.map((link) => (
+          <a
+            key={link.label}
+            href={link.href}
+            target={link.external ? "_blank" : undefined}
+            rel={link.external ? "noopener noreferrer" : undefined}
+            className="group flex items-center gap-5 p-5 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/[0.08] transition-colors"
+          >
+            <div className="flex items-center justify-center w-11 h-11 rounded-xl bg-white/10 text-white group-hover:bg-white/15 transition-colors shrink-0">
+              <link.icon size={22} />
+            </div>
+            <div className="flex flex-col">
+              <span className="text-xs font-medium tracking-wider uppercase text-gray-500 mb-0.5">
+                {link.label}
+              </span>
+              <span className="text-white text-base font-light">
+                {link.value}
+              </span>
+            </div>
+          </a>
+        ))}
       </div>
     </>
   );
