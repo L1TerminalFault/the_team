@@ -11,6 +11,8 @@ import AnimatedLink from "./AnimatedLink";
 import TopMenuSheet from "./TopMenuSheet";
 import { useModalStore } from "@/store/useModalStore";
 
+const company_name: string = "ASYMPTOTE CREATIVE";
+
 export default function TopBar() {
   const topBarRef = useRef<HTMLDivElement>(null);
 
@@ -89,7 +91,7 @@ export default function TopBar() {
         <div className="top-text pointer-events-none fixed opacity-1 justify-center backdrop-blur-2xl bg-black/50 z-95 overflow-visible text-2xl font-extrabold text-gray-300 flex flex-row items-center gap-20">
           <SiTechcrunch className="icon size-100" />
           <div className="text inline-block overflow-x-clip h-max whitespace-nowrap tracking-tighter leading-3.75">
-            THE TEAM
+            {company_name}
           </div>
         </div>
 
@@ -105,24 +107,37 @@ export default function TopBar() {
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center gap-5 w-auto lg:w-1/2 justify-end text-gray-300/80">
             <div className="flex items-center font-medium gap-4 lg:gap-8 justify-between text-base lg:text-lg mr-4">
-              <AnimatedLink text="Order" onClick={() => setActiveModal("order")} />
-              <AnimatedLink text="Contact Us" onClick={() => setActiveModal("contact")} />
+              <AnimatedLink
+                text="Order"
+                onClick={() => setActiveModal("order")}
+              />
+              <AnimatedLink
+                text="Contact Us"
+                onClick={() => setActiveModal("contact")}
+              />
               <AnimatedLink text="FAQ" onClick={() => setActiveModal("faq")} />
-              <AnimatedLink text="About" onClick={() => setActiveModal("about")} />
+              <AnimatedLink
+                text="About"
+                onClick={() => setActiveModal("about")}
+              />
             </div>
 
             <div className="flex rounded-full bg-black/20 p-1 shrink-0">
               <SignInButton mode="modal">
-                <button className="rounded-l-full bg-white/2 px-5 py-2 cursor-pointer transition-colors hover:bg-white/10">Log In</button>
+                <button className="rounded-l-full bg-white/2 px-5 py-2 cursor-pointer transition-colors hover:bg-white/10">
+                  Log In
+                </button>
               </SignInButton>
               <SignUpButton mode="modal">
-                <button className="rounded-r-full px-5 py-2 cursor-pointer transition-colors hover:bg-white/10">Sign Up</button>
+                <button className="rounded-r-full px-5 py-2 cursor-pointer transition-colors hover:bg-white/10">
+                  Sign Up
+                </button>
               </SignUpButton>
             </div>
           </div>
 
           {/* Mobile Nav Toggle */}
-          <button 
+          <button
             className="md:hidden flex flex-col gap-1.5 p-2 z-50 cursor-pointer"
             onClick={() => setMenuOpen(true)}
           >
