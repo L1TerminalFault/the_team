@@ -52,16 +52,16 @@ export default function AboutModal() {
             <div className="text-sm text-gray-400">CEO &middot; Founder</div>
           </div>
           <div className="flex flex-col gap-2">
-            <div className="text-2xl font-light text-gray-200">Kalab</div>
-            <div className="text-sm text-gray-400">VP &middot; Co-Founder</div>
+            <div className="text-2xl font-light text-gray-200">Israel Abdu</div>
+            <div className="text-sm text-gray-400">Co-Founder</div>
           </div>
           <div className="flex flex-col gap-2">
             <div className="text-2xl font-light text-gray-200">Ketsebot</div>
             <div className="text-sm text-gray-400">Co-Founder</div>
           </div>
           <div className="flex flex-col gap-2">
-            <div className="text-2xl font-light text-gray-200">Israel Abdu</div>
-            <div className="text-sm text-gray-400">Co-Founder</div>
+            <div className="text-2xl font-light text-gray-200">Kalab</div>
+            <div className="text-sm text-gray-400">VP &middot; Co-Founder</div>
           </div>
         </div>
       </div>
