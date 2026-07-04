@@ -19,3 +19,29 @@ export async function GET() {
 
   return Response.json(orders);
 }
+
+export async function POST(request: Request) {
+  const { userId } = await auth();
+
+  if (!userId) {
+    return Response.json({ error: "Unauthorized" }, { status: 401 });
+  }
+
+  try {
+    const body = await request.json();
+    const { fullName, type, detail } = body;
+
+    await dbConnect();
+
+    const newOrder = await Order.create({
+      clerkId: userId,
+      fullName,
+      type,
+      detail,
+    });
+
+    return Response.json(newOrder, { status: 201 });
+  } catch (error: any) {
+    return Response.json({ error: error.message }, { status: 500 });
+  }
+}

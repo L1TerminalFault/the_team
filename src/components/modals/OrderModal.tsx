@@ -13,10 +13,18 @@ interface OrderItem {
 }
 
 export default function OrderModal() {
-  const { isSignedIn, isLoaded } = useUser();
+  const { user, isSignedIn, isLoaded } = useUser();
   const [orders, setOrders] = useState<OrderItem[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+
+  // Form state
+  const [showForm, setShowForm] = useState(false);
+  const [orderType, setOrderType] = useState("Web App");
+  const [orderDetail, setOrderDetail] = useState("");
+  const [submitting, setSubmitting] = useState(false);
+
+  const isAdmin = user?.publicMetadata?.role === "admin";
 
   useEffect(() => {
     if (!isLoaded) return;
@@ -40,6 +48,39 @@ export default function OrderModal() {
       });
   }, [isSignedIn, isLoaded]);
 
+  const handleCreateOrder = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!orderDetail.trim()) return;
+
+    setSubmitting(true);
+    setError(null);
+
+    try {
+      const res = await fetch("/api/orders", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          fullName: user?.fullName || "Anonymous",
+          type: orderType,
+          detail: orderDetail,
+        }),
+      });
+
+      if (!res.ok) throw new Error("Failed to create order");
+
+      const newOrder = await res.json();
+      setOrders([newOrder, ...orders]);
+      setShowForm(false);
+      setOrderDetail("");
+    } catch (err: any) {
+      setError(err.message);
+    } finally {
+      setSubmitting(false);
+    }
+  };
+
   return (
     <>
       <h1 className="text-4xl font-bold mb-8 text-white">Orders</h1>
@@ -58,16 +99,61 @@ export default function OrderModal() {
         <div className="mt-6 p-8 bg-red-500/10 rounded-2xl border border-red-500/20 text-center">
           <p className="text-red-400">{error}</p>
         </div>
-      ) : orders.length === 0 ? (
-        <div className="mt-6 p-8 bg-white/5 rounded-2xl border border-white/10 text-center">
-          <p className="text-gray-400 text-lg">
-            No active orders. Your contracts and project milestones will appear
-            here.
-          </p>
-        </div>
       ) : (
-        <div className="flex flex-col gap-4 mt-4">
-          {orders.map((order) => (
+        <div className="flex flex-col gap-6 mt-4">
+          {!isAdmin && (
+            <div className="flex justify-end">
+              <button
+                onClick={() => setShowForm(!showForm)}
+                className="bg-white text-black font-semibold py-2 px-4 rounded-xl hover:bg-gray-200 transition"
+              >
+                {showForm ? "Cancel" : "New Order"}
+              </button>
+            </div>
+          )}
+
+          {showForm && !isAdmin && (
+            <form
+              onSubmit={handleCreateOrder}
+              className="p-6 bg-white/10 rounded-2xl border border-white/20 flex flex-col gap-4"
+            >
+              <h2 className="text-xl font-semibold text-white">Place a New Order</h2>
+              <select
+                value={orderType}
+                onChange={(e) => setOrderType(e.target.value)}
+                className="w-full bg-white/10 p-3 rounded-xl outline-none focus:ring-2 focus:ring-white/20 text-white appearance-none"
+              >
+                <option value="Web App" className="text-black">Web App</option>
+                <option value="Social Media" className="text-black">Social Media</option>
+                <option value="Full Stack" className="text-black">Full Stack</option>
+                <option value="Other" className="text-black">Other</option>
+              </select>
+              <textarea
+                value={orderDetail}
+                onChange={(e) => setOrderDetail(e.target.value)}
+                rows={4}
+                placeholder="Describe your project requirements..."
+                className="w-full bg-white/10 p-4 rounded-xl outline-none focus:ring-2 focus:ring-white/20 text-white resize-none"
+              ></textarea>
+              <button
+                type="submit"
+                disabled={submitting}
+                className="bg-white text-black font-bold py-3 rounded-xl hover:bg-gray-200 transition disabled:opacity-50"
+              >
+                {submitting ? "Submitting..." : "Submit Order"}
+              </button>
+            </form>
+          )}
+
+          {orders.length === 0 && !showForm ? (
+            <div className="p-8 bg-white/5 rounded-2xl border border-white/10 text-center">
+              <p className="text-gray-400 text-lg">
+                No active orders. Your contracts and project milestones will appear here.
+              </p>
+            </div>
+          ) : (
+            <div className="flex flex-col gap-4">
+              {orders.map((order) => (
             <div
               key={order._id}
               className="p-5 bg-white/5 rounded-2xl border border-white/10 hover:bg-white/[0.07] transition-colors"
@@ -88,6 +174,8 @@ export default function OrderModal() {
               )}
             </div>
           ))}
+            </div>
+          )}
         </div>
       )}
     </>
