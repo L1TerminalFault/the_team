@@ -102,8 +102,6 @@ export default function Home() {
             end: "bottom 20%", // End when bottom of section reaches 15% from top
             scrub: 2,
           },
-          duration: 1,
-          stagger: 2,
         });
 
         // Timeline: 0-40% = fade in, 40-60% = hold at center, 60-100% = fade out
@@ -123,11 +121,11 @@ export default function Home() {
           .to({}, { duration: 0.2 }) // Hold visible at center
           .to(split.chars, {
             opacity: 0,
-            y: -60,
-            scale: 0.8,
+            y: -40,
+            scale: 0.9,
             stagger: 0.04,
             duration: 0.7,
-            ease: "elastic.out(1, 0.5)",
+            ease: "power3.inOut",
           });
 
         return split;
