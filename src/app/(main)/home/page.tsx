@@ -102,6 +102,8 @@ export default function Home() {
             end: "bottom 20%", // End when bottom of section reaches 15% from top
             scrub: 2,
           },
+          duration: 1,
+          stagger: 2,
         });
 
         // Timeline: 0-40% = fade in, 40-60% = hold at center, 60-100% = fade out
