@@ -42,6 +42,29 @@ export default function AboutModal() {
         <p>
           Furthermore, our commitment to excellence drives us to constantly innovate. As the tech landscape shifts towards Artificial Intelligence integrations, Web3 infrastructure, and spatial computing, our R&D departments are already charting the course to integrate these tools organically into our clients' tech stacks. Whether you are a promising startup looking to establish your digital footprint or a multinational corporation aiming to modernize legacy systems, The Team is ready to catalyze your success.
         </p>
+      <div className="flex flex-col gap-8 mt-4">
+        <div className="text-sm font-semibold tracking-widest uppercase text-gray-500">
+          Our Founders
+        </div>
+        <div className="grid grid-cols-2 gap-8">
+          <div className="flex flex-col gap-2">
+            <div className="text-2xl font-light text-gray-200">Kemal Esak</div>
+            <div className="text-sm text-gray-400">CEO &middot; Founder</div>
+          </div>
+          <div className="flex flex-col gap-2">
+            <div className="text-2xl font-light text-gray-200">Kalab</div>
+            <div className="text-sm text-gray-400">VP &middot; Co-Founder</div>
+          </div>
+          <div className="flex flex-col gap-2">
+            <div className="text-2xl font-light text-gray-200">Ketsebot</div>
+            <div className="text-sm text-gray-400">Co-Founder</div>
+          </div>
+          <div className="flex flex-col gap-2">
+            <div className="text-2xl font-light text-gray-200">Israel Abdu</div>
+            <div className="text-sm text-gray-400">Co-Founder</div>
+          </div>
+        </div>
+      </div>
       </div>
     </>
   );
