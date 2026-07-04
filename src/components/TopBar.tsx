@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { FaFacebook, FaLinkedin, FaTwitter } from "react-icons/fa";
 import { SiTechcrunch } from "react-icons/si";
-import { SignInButton, SignUpButton } from "@clerk/nextjs";
+import { SignInButton, SignUpButton, Show, UserButton } from "@clerk/nextjs";
 
 import AnimatedLink from "./AnimatedLink";
 import TopMenuSheet from "./TopMenuSheet";
@@ -121,6 +121,7 @@ export default function TopBar() {
             </div>
 
             <div className="flex rounded-full bg-black/20 p-1 shrink-0">
+	    <Show when="signed-out">
               <SignInButton mode="modal">
                 <button className="rounded-l-full bg-white/2 px-5 py-2 cursor-pointer transition-colors hover:bg-white/10">
                   Log In
@@ -131,6 +132,20 @@ export default function TopBar() {
                   Sign Up
                 </button>
               </SignUpButton>
+            </Show>
+	    					<Show when="signed-in">
+						<UserButton
+							showName
+							appearance={{
+								elements: {
+									userButtonOuterIdentifier: {
+										color: "gray",
+									},
+								},
+							}}
+						/>
+					</Show>
+
             </div>
           </div>
 
