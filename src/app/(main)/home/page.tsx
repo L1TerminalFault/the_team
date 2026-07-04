@@ -123,11 +123,11 @@ export default function Home() {
           .to({}, { duration: 0.2 }) // Hold visible at center
           .to(split.chars, {
             opacity: 0,
-            y: -40,
-            scale: 0.9,
+            y: -60,
+            scale: 0.8,
             stagger: 0.04,
             duration: 0.7,
-            ease: "power3.inOut",
+            ease: "elastic.out(1, 0.5)",
           });
 
         return split;
