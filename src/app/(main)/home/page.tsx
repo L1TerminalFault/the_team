@@ -98,9 +98,9 @@ export default function Home() {
         const tlText = gsap.timeline({
           scrollTrigger: {
             trigger: section,
-            start: "top 85%", // Start animating when top of section enters 85% down
-            end: "bottom 15%", // End when bottom of section reaches 15% from top
-            scrub: 1,
+            start: "top 80%", // Start animating when top of section enters 85% down
+            end: "bottom 20%", // End when bottom of section reaches 15% from top
+            scrub: 2,
           },
         });
 

@@ -88,7 +88,7 @@ export default function TopBar() {
   return (
     <>
       <div className="py-10 px-8 md:px-20 w-full flex items-center justify-between fixed top-0 left-0 z-40 bg-transparent">
-        <div className="top-text pointer-events-none fixed opacity-1 justify-center backdrop-blur-2xl bg-black/50 z-95 overflow-visible text-2xl font-extrabold text-gray-300 flex flex-row items-center gap-20">
+        <div className="top-text hidden pointer-events-none fixed opacity-1 justify-center backdrop-blur-2xl bg-black/50 z-95 overflow-visible text-2xl font-extrabold text-gray-300 flex flex-row items-center gap-20">
           <SiTechcrunch className="icon size-100" />
           <div className="text inline-block overflow-x-clip h-max whitespace-nowrap tracking-tighter leading-3.75">
             {company_name}
@@ -101,7 +101,7 @@ export default function TopBar() {
             className="text-xl md:text-2xl font-extrabold text-gray-300 flex items-center gap-3 z-50 relative"
           >
             <SiTechcrunch className="size-8 md:size-11" />
-            <AnimatedLink text="The Team" to="/home" />
+            <AnimatedLink text={company_name} to="/home" />
           </div>
 
           {/* Desktop Nav */}
