@@ -10,6 +10,30 @@ export default function AboutSection() {
         <br />
         From striking algorithmic identities to hypersonic web hubs and our proprietary ERP nexus, we engineer integrated combat systems for businesses preparing to dominate international domains.
       </div>
+      
+      <div className="flex flex-col gap-8 mt-4">
+        <div className="text-sm font-semibold tracking-widest uppercase text-gray-500">
+          Our Founders
+        </div>
+        <div className="grid grid-cols-2 gap-8">
+          <div className="flex flex-col gap-2">
+            <div className="text-2xl font-light text-gray-200">Kemal Esak</div>
+            <div className="text-sm text-gray-400">CEO &middot; Founder</div>
+          </div>
+          <div className="flex flex-col gap-2">
+            <div className="text-2xl font-light text-gray-200">Kalab</div>
+            <div className="text-sm text-gray-400">VP &middot; Co-Founder</div>
+          </div>
+          <div className="flex flex-col gap-2">
+            <div className="text-2xl font-light text-gray-200">Ketsebot</div>
+            <div className="text-sm text-gray-400">Co-Founder</div>
+          </div>
+          <div className="flex flex-col gap-2">
+            <div className="text-2xl font-light text-gray-200">Israel Abdu</div>
+            <div className="text-sm text-gray-400">Co-Founder</div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
