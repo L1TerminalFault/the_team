@@ -153,11 +153,11 @@ export default function Home() {
           className="w-full flex min-h-svh py-16 items-center justify-center"
         >
           {sec.cubePosition === "left" && (
-            <div className="w-1/2 h-full border max-lg:hidden border-transparent"></div>
+            <div className="w-1/2 h-full border max-xl:hidden border-transparent"></div>
           )}
           <sec.Content />
           {sec.cubePosition === "right" && (
-            <div className="w-1/2 h-full border max-lg:hidden border-transparent"></div>
+            <div className="w-1/2 h-full border max-xl:hidden border-transparent"></div>
           )}
         </div>
       ))}
