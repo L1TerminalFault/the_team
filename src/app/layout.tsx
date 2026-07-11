@@ -37,7 +37,7 @@ export default function RootLayout({
     >
       <html
         lang="en"
-        className={`${ /* geistSans.variable geistMono.variable */} ${montserrat.variable} flex h-full antialiased`}
+        className={`${montserrat.variable} flex h-full antialiased`}
       >
         <body className="h-full w-full flex flex-col">{children}</body>
       </html>
