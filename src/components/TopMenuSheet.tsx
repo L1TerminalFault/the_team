@@ -30,7 +30,7 @@ export default function TopMenuSheet({ isOpen, onClose }: { isOpen: boolean; onC
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex flex-col justify-start pointer-events-none md:hidden">
+    <div className="fixed inset-0 z-50 flex flex-col justify-start pointer-events-none lg:hidden">
       {/* Backdrop */}
       <div 
         ref={backdropRef}
@@ -55,6 +55,9 @@ export default function TopMenuSheet({ isOpen, onClose }: { isOpen: boolean; onC
             <AnimatedLink text="Contact Us" onClick={() => handleLink("contact")} />
             <AnimatedLink text="FAQ" onClick={() => handleLink("faq")} />
             <AnimatedLink text="About" onClick={() => handleLink("about")} />
+            <AnimatedLink text="Terms Of Service" className_="px-4" onClick={() => setActiveModal("terms")} />
+            <AnimatedLink text="Cookie Preferences" className_="px-4" onClick={() => setActiveModal("cookie")} />
+            <AnimatedLink text="Privacy Policy" className_="px-4" onClick={() => setActiveModal("privacy")} />
           </div>
 
           <div className="flex rounded-full bg-black/40 p-1 mt-4">

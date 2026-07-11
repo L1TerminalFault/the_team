@@ -162,7 +162,7 @@ export default function Home() {
         </div>
       ))}
 
-      <div className="fixed top-0 max-lg:hidden pointer-events-none overflow-hidden flex w-full h-full z-1">
+      <div className="fixed top-0 max-xl:hidden pointer-events-none overflow-hidden flex w-full h-full z-1">
         <div
           ref={glassRef}
           className="flex absolute w-1/2 items-center justify-center h-full z-1 left-0"
