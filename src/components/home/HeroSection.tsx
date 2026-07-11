@@ -7,14 +7,14 @@ export default function HeroSection() {
       <div className="text-gray-200 font-bold text-7xl max-w-2xl leading-tight">
         Always approaching perfection.
       </div>
-      <div className="text-gray-300/80 text-xl font-light tracking-wide max-w-[85%] leading-relaxed">
+      <div className="text-gray-300/80 text-md font-light /tracking-wide max-w-[85%] /leading-relaxed">
         We build brands, manage digital presence, and deliver the ERP System — a complete framework for performance, reach, and results.
       </div>
       <div className="flex gap-4 mt-2">
         <a href="#services" className="bg-white text-black font-semibold px-6 py-3 rounded-full hover:bg-gray-200 transition-colors text-base">
           Explore Services
         </a>
-        <a href="#about" className="border border-white/20 text-gray-300 font-semibold px-6 py-3 rounded-full hover:bg-white/10 transition-colors text-base">
+        <a href="#about" className="hidden border border-white/20 text-gray-300 font-semibold px-6 py-3 rounded-full hover:bg-white/10 transition-colors text-base">
           Our story
         </a>
       </div>

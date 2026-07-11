@@ -33,7 +33,7 @@ export default function ServicesSection() {
   ];
 
   return (
-    <div className="animate-text-section flex p-10 flex-col overflow gap-8 lg:w-1/2 z-1 h-full justify-center">
+    <div id="services" className="animate-text-section flex p-10 flex-col overflow gap-8 lg:w-1/2 z-1 h-full justify-center">
       <div className="text-sm font-semibold tracking-widest uppercase text-gray-500 mb-2">What we do</div>
       <div className="text-gray-200 font-bold text-5xl mb-4">Our Services</div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
