@@ -5,7 +5,7 @@ import AnimatedLink from "./AnimatedLink";
 import { useModalStore } from "@/store/useModalStore";
 import gsap from "gsap";
 import { useEffect, useRef, useState } from "react";
-import { SignInButton, SignUpButton } from "@clerk/nextjs";
+import { SignInButton, SignUpButton, Show } from "@clerk/nextjs";
 
 export default function TopMenuSheet({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) {
   const { setActiveModal } = useModalStore();
@@ -61,12 +61,30 @@ export default function TopMenuSheet({ isOpen, onClose }: { isOpen: boolean; onC
           </div>
 
           <div className="flex rounded-full bg-black/40 p-1 mt-4">
-            <SignInButton mode="modal">
-              <button className="rounded-l-full bg-white/5 px-6 py-3 cursor-pointer transition-colors hover:bg-white/10" onClick={onClose}>Log In</button>
-            </SignInButton>
-            <SignUpButton mode="modal">
-              <button className="rounded-r-full px-6 py-3 cursor-pointer transition-colors hover:bg-white/10" onClick={onClose}>Sign Up</button>
-            </SignUpButton>
+	    <Show when="signed-out">
+              <SignInButton mode="modal">
+                <button className="rounded-l-full bg-white/2 px-5 py-2 cursor-pointer transition-colors hover:bg-white/10">
+                  Log In
+                </button>
+              </SignInButton>
+              <SignUpButton mode="modal">
+                <button className="rounded-r-full px-5 py-2 cursor-pointer transition-colors hover:bg-white/10">
+                  Sign Up
+                </button>
+              </SignUpButton>
+            </Show>
+	    					<Show when="signed-in">
+						<UserButton
+							showName
+							appearance={{
+								elements: {
+									userButtonOuterIdentifier: {
+										color: "gray",
+									},
+								},
+							}}
+						/>
+					</Show>
           </div>
         </div>
       </div>
