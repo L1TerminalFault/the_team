@@ -10,11 +10,11 @@ export default function ProcessSection() {
   return (
     <div className="animate-text-section flex p-10 flex-col overflow gap-8 lg:w-1/2 z-1 h-full justify-center">
       <div className="text-sm font-semibold tracking-widest uppercase text-gray-500 mb-2">How we work</div>
-      <div className="text-gray-200 font-bold text-5xl mb-4">Our Process</div>
+      <div className="text-gray-200 font-bold text-4xl mb-4">Our Process</div>
       <div className="flex flex-col gap-6">
         {steps.map((step, idx) => (
           <div key={idx} className="flex gap-4">
-            <div className="hidden text-white /bg-white/10 rounded-full w-8 h-8 flex items-center justify-center shrink-0">
+            <div className="text-white /bg-white/10 rounded-full w-8 h-8 flex items-center justify-center shrink-0 hidden">
               {idx + 1}
             </div>
             <div className="flex flex-col">

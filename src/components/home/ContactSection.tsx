@@ -4,7 +4,7 @@ export default function ContactSection() {
       <div className="text-sm font-semibold tracking-widest uppercase text-gray-500">
         Get in touch
       </div>
-      <div className="text-gray-200 font-bold text-6xl leading-tight">
+      <div className="text-gray-200 font-bold text-4xl leading-tight">
         Start your project today.
       </div>
       <div className="flex flex-col gap-4 text-gray-300 text-lg">

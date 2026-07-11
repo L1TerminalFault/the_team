@@ -4,10 +4,10 @@ export default function AboutSection() {
       <div className="text-sm font-semibold tracking-widest uppercase text-gray-500">
         About Asymptote Creative
       </div>
-      <div className="text-gray-200 font-bold text-6xl max-w-[90%] leading-tight">
+      <div className="text-gray-200 font-bold text-4xl max-w-[90%] leading-tight">
         We grow businesses beyond limits.
       </div>
-      <div className="text-gray-300/80 text-base /font-light /tracking-wide max-w-[85%] /leading-relaxed">
+      <div className="text-gray-300 text-base /font-light /tracking-wide max-w-[85%] /leading-relaxed">
         Asymptote Creative is a full-service digital agency based in Addis Ababa, Ethiopia, built on a single belief: your business should always be moving closer to its full potential — approaching excellence asymptotically, always improving, never settling.
         <br />
         <br />
