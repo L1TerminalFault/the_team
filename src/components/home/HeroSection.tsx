@@ -1,6 +1,6 @@
 export default function HeroSection() {
   return (
-    <div className="animate-text-section text-3xl flex p-10 flex-col overflow gap-13 lg:w-1/2 z-1">
+    <div className="animate-text-section text-3xl flex p-10 flex-col overflow gap-13 xl:w-1/2 lg:w-3/5 z-1">
       <div className="text-sm font-semibold tracking-widest uppercase text-gray-500">
         Asymptote Creative — Digital Excellence
       </div>
