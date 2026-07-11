@@ -8,7 +8,7 @@ export default function ProcessSection() {
   ];
 
   return (
-    <div className="animate-text-section flex p-10 flex-col overflow gap-8 xl:w-1/2 lg:w-3/5 z-1 h-full justify-center">
+    <div className="animate-text-section flex p-10 flex-col overflow gap-8 xl:w-1/2 lg:w-4/5 z-1 h-full justify-center">
       <div className="text-sm font-semibold tracking-widest uppercase text-gray-500 mb-2">How we work</div>
       <div className="text-gray-200 font-bold text-4xl mb-4">Our Process</div>
       <div className="flex flex-col gap-6">

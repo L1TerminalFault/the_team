@@ -1,6 +1,6 @@
 export default function ContactSection() {
   return (
-    <div className="animate-text-section text-3xl flex p-10 flex-col overflow gap-8 xl:w-1/2 lg:w-3/5 z-1">
+    <div className="animate-text-section text-3xl flex p-10 flex-col overflow gap-8 xl:w-1/2 lg:w-4/5 z-1">
       <div className="text-sm font-semibold tracking-widest uppercase text-gray-500">
         Get in touch
       </div>
