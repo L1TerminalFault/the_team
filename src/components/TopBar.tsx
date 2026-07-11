@@ -103,7 +103,7 @@ export default function TopBar() {
           </div>
 
           {/* Desktop Nav */}
-          <div className="flex items-center gap-5 w-auto lg:w-1/2 lg:justify-end text-gray-300/80">
+          <div className="flex items-center gap-5 w-auto lg:w-1/2 max-lg:justify-end text-gray-300/80">
             <div className="hidden xl:flex items-center w-full font-medium gap-4 lg:gap-8 justify-between text-base lg:text-lg mr-4">
               <AnimatedLink
                 text="Order"
