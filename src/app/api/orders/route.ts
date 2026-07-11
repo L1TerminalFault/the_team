@@ -15,7 +15,7 @@ export async function GET() {
 
   const orders = isAdmin
     ? await Order.find({}).lean()
-    : await Order.find({ clerkId: userId }).lean();
+    : await Order.find({ clerkId: user.id }).lean();
 
     console.log("metadata: ", user.publicMetadata, "\nOrders: ", orders);
   return Response.json(orders);
