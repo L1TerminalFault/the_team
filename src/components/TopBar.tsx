@@ -103,8 +103,8 @@ export default function TopBar() {
           </div>
 
           {/* Desktop Nav */}
-          <div className="hidden lg:flex items-center gap-5 w-auto lg:w-1/2 justify-end text-gray-300/80">
-            <div className="flex items-center w-full font-medium gap-4 lg:gap-8 justify-between text-base lg:text-lg mr-4">
+          <div className="flex items-center gap-5 w-auto lg:w-1/2 justify-end text-gray-300/80">
+            <div className="hidden xl:flex items-center w-full font-medium gap-4 lg:gap-8 justify-between text-base lg:text-lg mr-4">
               <AnimatedLink
                 text="Order"
                 onClick={() => setActiveModal("order")}
@@ -151,7 +151,7 @@ export default function TopBar() {
 
           {/* Mobile Nav Toggle */}
           <button
-            className="lg:hidden flex flex-col gap-1.5 p-2 z-50 cursor-pointer"
+            className="xl:hidden flex flex-col gap-1.5 p-2 z-50 cursor-pointer"
             onClick={() => setMenuOpen(true)}
           >
             <div className="w-6 h-0.5 bg-gray-300 rounded-full"></div>

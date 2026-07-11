@@ -5,7 +5,7 @@ import AnimatedLink from "./AnimatedLink";
 import { useModalStore } from "@/store/useModalStore";
 import gsap from "gsap";
 import { useEffect, useRef, useState } from "react";
-import { SignInButton, SignUpButton, Show, UserButton } from "@clerk/nextjs";
+// import { SignInButton, SignUpButton, Show, UserButton } from "@clerk/nextjs";
 
 export default function TopMenuSheet({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) {
   const { setActiveModal } = useModalStore();
@@ -30,7 +30,7 @@ export default function TopMenuSheet({ isOpen, onClose }: { isOpen: boolean; onC
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex flex-col justify-start pointer-events-none lg:hidden">
+    <div className="fixed inset-0 z-50 flex flex-col justify-start pointer-events-none xl:hidden">
       {/* Backdrop */}
       <div 
         ref={backdropRef}
@@ -60,7 +60,7 @@ export default function TopMenuSheet({ isOpen, onClose }: { isOpen: boolean; onC
             <AnimatedLink text="Privacy Policy" className_="px-4" onClick={() => setActiveModal("privacy")} />
           </div>
 
-          <div className="flex rounded-full bg-black/40 p-1 mt-4">
+	  {/* <div className="flex rounded-full bg-black/40 p-1 mt-4">
 	    <Show when="signed-out">
               <SignInButton mode="modal">
                 <button className="rounded-l-full bg-white/2 px-5 py-2 cursor-pointer transition-colors hover:bg-white/10">
@@ -85,7 +85,7 @@ export default function TopMenuSheet({ isOpen, onClose }: { isOpen: boolean; onC
 							}}
 						/>
 					</Show>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
