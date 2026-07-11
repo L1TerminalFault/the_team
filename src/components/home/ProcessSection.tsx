@@ -1,14 +1,15 @@
 export default function ProcessSection() {
   const steps = [
-    { title: "Discovery Protocol", desc: "We extract raw metrics, dissect market forces, and unveil hidden potential before writing a single line of code." },
-    { title: "Strategic Architecture", desc: "A mathematically rigid, hyper-tailored roadmap built around your unique algorithmic advantages and aggressive growth targets." },
-    { title: "Execution Engine", desc: "Our tactical unit engineers, designs, and forges every deliverable to an absurd standard of quality." },
-    { title: "Hyper-Launch", desc: "We deploy and activate with surgical precision, ensuring every system performs ruthlessly from day one." },
-    { title: "Continuous Evolution", desc: "Relentless monitoring and algorithmic iteration — forever moving your results asymptotically closer to absolute perfection." }
+    { title: "Discovery", desc: "We learn your business, audience, and goals inside out before touching a single pixel." },
+    { title: "Strategy", desc: "A tailored roadmap built around your unique competitive position and growth targets." },
+    { title: "Creation", desc: "Our team designs, builds, and crafts every deliverable to the highest standard." },
+    { title: "Launch", desc: "We deploy and activate with precision, ensuring every element performs from day one." },
+    { title: "Optimise", desc: "Ongoing monitoring and iteration — always moving your results closer to perfect." }
   ];
 
   return (
     <div className="animate-text-section flex p-10 flex-col overflow gap-8 lg:w-1/2 z-1 h-full justify-center">
+      <div className="text-sm font-semibold tracking-widest uppercase text-gray-500 mb-2">How we work</div>
       <div className="text-gray-200 font-bold text-5xl mb-4">Our Process</div>
       <div className="flex flex-col gap-6">
         {steps.map((step, idx) => (

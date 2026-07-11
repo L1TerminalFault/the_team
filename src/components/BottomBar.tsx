@@ -107,10 +107,10 @@ export default function BottomBar() {
           <Link href={"https://facebook.com"} target="_blank" className="p-2">
             <FaFacebookF size={23} className="text-gray-400/80" />
           </Link>
-          <Link href={"https://whatsapp.com"} target="_blank" className="p-2">
+          <Link href={"https://wa.me/251944806913"} target="_blank" className="p-2">
             <FaWhatsapp size={23} className="text-gray-400/80" />
           </Link>
-          <Link href={"https://t.me"} target="_blank" className="p-2">
+          <Link href={"https://t.me/AsymptoteCreative"} target="_blank" className="p-2">
             <FaTelegramPlane size={23} className="text-gray-400/80" />
           </Link>
           <Link href={"https://instagram.com"} target="_blank" className="p-2">
@@ -120,6 +120,9 @@ export default function BottomBar() {
             <FaYoutube size={23} className="text-gray-400/80" />
           </Link>
         </div>
+      </div>
+      <div className="hidden md:block text-gray-500 text-xs text-center mt-4 pointer-events-auto">
+        © 2026 Asymptote Creative · Akaki Kality, Addis Ababa, Ethiopia · reach@asymptotecreative.com
       </div>
     </div>
   );

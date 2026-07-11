@@ -2,38 +2,39 @@ export default function ServicesSection() {
   const services = [
     {
       num: "01",
-      title: "Algorithmic Social Vitality",
-      desc: "Surgically targeted content architecture and community omnipresence on pivotal platforms to dramatically scale your digital resonance.",
+      title: "Social Media Management",
+      desc: "Strategic content creation, scheduling, and community management across all major platforms to grow your audience and brand presence.",
     },
     {
       num: "02",
-      title: "Spatial Web Systems",
-      desc: "Next-generation, hypersonic digital environments crafted for blistering performance, international conversion, and visceral user experiences.",
+      title: "Website Development",
+      desc: "Modern, fast, and beautiful websites built for international audiences with a focus on conversion, performance, and user experience.",
     },
     {
       num: "03",
-      title: "Enterprise Resource Flow",
-      desc: "Our proprietary AI-augmented ERP infrastructure—seamlessly bridging operations, data, and human capital to scale your empire systematically.",
+      title: "ERP System",
+      desc: "Our proprietary enterprise resource planning solution — a unified system that connects your operations, data, and teams to scale your business systematically and sustainably.",
     },
     {
       num: "04",
-      title: "High-Fidelity Branding",
-      desc: "Distinctive, uncompromising visual paradigms that instantly telegraph your intrinsic value and cement your position as an industry apex.",
+      title: "Logo & Brand Design",
+      desc: "Distinctive visual identities that communicate your values and position your business for international recognition and recall.",
     },
     {
       num: "05",
-      title: "Strategic Aggression",
-      desc: "Cold, calculated, highly mathematical strategy sessions mapping competitive weaknesses and charting the most vicious paths to sustained growth.",
+      title: "Digital Strategy",
+      desc: "Data-driven strategy sessions that map your competitive landscape and chart the clearest, fastest path to measurable growth.",
     },
     {
       num: "06",
-      title: "Financial Aerodynamics",
-      desc: "Institutional-grade financial guidance and rapid business development advisory ensuring your scale is aggressively profitable.",
+      title: "Growth & Finance Advisory",
+      desc: "Smart financial guidance and business development advisory to help you scale confidently and profitably.",
     },
   ];
 
   return (
     <div className="animate-text-section flex p-10 flex-col overflow gap-8 lg:w-1/2 z-1 h-full justify-center">
+      <div className="text-sm font-semibold tracking-widest uppercase text-gray-500 mb-2">What we do</div>
       <div className="text-gray-200 font-bold text-5xl mb-4">Our Services</div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {services.map((s, idx) => (
