@@ -21,7 +21,7 @@ export async function GET() {
   return Response.json(orders);
 	} catch (err) {
 		console.error("Error: ", err);
-    return Response.json({ error: err.message }, { status: 500 });
+    return Response.json({ error: err }, { status: 500 });
 	}
 }
 
