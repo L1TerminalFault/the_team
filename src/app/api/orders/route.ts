@@ -18,6 +18,7 @@ export async function GET() {
     ? await Order.find({}).lean()
     : await Order.find({ clerkId: userId }).lean();
 
+    console.log("Admin: ", admin, "\nOrders: ", orders);
   return Response.json(orders);
 	} catch (err) {
 		console.error("Error: ", err);
