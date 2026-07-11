@@ -1,4 +1,4 @@
-import { auth } from "@clerk/nextjs/server";
+import { currentUser } from "@clerk/nextjs/server";
 import { dbConnect, Order } from "@/db/models";
 
 export async function GET() {
@@ -18,7 +18,7 @@ export async function GET() {
     ? await Order.find({}).lean()
     : await Order.find({ clerkId: userId }).lean();
 
-    console.log("Admin: ", isAdmin, "\nOrders: ", orders);
+    console.log("metadata: ", sessionClaims.publicMetadata, "\nOrders: ", orders);
   return Response.json(orders);
 	} catch (err) {
 		console.error("Error: ", err);
