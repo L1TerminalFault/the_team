@@ -20,8 +20,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Asymptote",
-  description: "",
+  title: "Asymptote Creative",
+  description: "We build brands, manage digital presence, and deliver the ERP System — a complete framework for performance, reach, and results.",
 };
 
 export default function RootLayout({
@@ -37,7 +37,7 @@ export default function RootLayout({
     >
       <html
         lang="en"
-        className={`${geistSans.variable} ${geistMono.variable} ${montserrat.variable} flex h-full antialiased`}
+        className={`${ /* geistSans.variable geistMono.variable */} ${montserrat.variable} flex h-full antialiased`}
       >
         <body className="h-full w-full flex flex-col">{children}</body>
       </html>
