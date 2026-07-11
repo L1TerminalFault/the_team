@@ -102,8 +102,18 @@ export default function TopBar() {
             <AnimatedLink text={company_name} to="/home" />
           </div>
 
+          {/* Mobile Nav Toggle */}
+          <button
+            className="xl:hidden flex flex-col gap-1.5 p-2 z-50 cursor-pointer"
+            onClick={() => setMenuOpen(true)}
+          >
+            <div className="w-6 h-0.5 bg-gray-300 rounded-full"></div>
+            <div className="w-6 h-0.5 bg-gray-300 rounded-full"></div>
+            <div className="w-6 h-0.5 bg-gray-300 rounded-full"></div>
+          </button>
+
           {/* Desktop Nav */}
-          <div className="flex items-center gap-5 w-auto lg:w-1/2 max-lg:justify-end text-gray-300/80">
+          <div className="flex items-center gap-5 w-auto lg:w-1/2 justify-end text-gray-300/80">
             <div className="hidden xl:flex items-center w-full font-medium gap-4 lg:gap-8 justify-between text-base lg:text-lg mr-4">
               <AnimatedLink
                 text="Order"
@@ -148,16 +158,6 @@ export default function TopBar() {
 
             </div>
           </div>
-
-          {/* Mobile Nav Toggle */}
-          <button
-            className="xl:hidden flex flex-col gap-1.5 p-2 z-50 cursor-pointer"
-            onClick={() => setMenuOpen(true)}
-          >
-            <div className="w-6 h-0.5 bg-gray-300 rounded-full"></div>
-            <div className="w-6 h-0.5 bg-gray-300 rounded-full"></div>
-            <div className="w-6 h-0.5 bg-gray-300 rounded-full"></div>
-          </button>
         </div>
       </div>
       <TopMenuSheet isOpen={menuOpen} onClose={() => setMenuOpen(false)} />
