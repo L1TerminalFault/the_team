@@ -1,24 +1,23 @@
-import { auth } from "@clerk/nextjs/server";
+import { currentUser } from "@clerk/nextjs/server";
 import { dbConnect, Order } from "@/db/models";
 
 export async function GET() {
 	try {
-  const { userId, sessionClaims } = await auth();
+  const user = await currentUser();
 
-  if (!userId) {
+  if (!user) {
     return Response.json({ error: "Unauthorized" }, { status: 401 });
   }
 
   await dbConnect();
 
-  const isAdmin =
-    (sessionClaims?.publicMetadata as Record<string, unknown>)?.role === "admin";
+  const isAdmin = user?.publicMetadata?.role === "admin";
 
   const orders = isAdmin
     ? await Order.find({}).lean()
     : await Order.find({ clerkId: userId }).lean();
 
-    console.log("metadata: ", sessionClaims.publicMetadata, "\nOrders: ", orders);
+    console.log("metadata: ", user.publicMetadata, "\nOrders: ", orders);
   return Response.json(orders);
 	} catch (err) {
 		console.error("Error: ", err);
