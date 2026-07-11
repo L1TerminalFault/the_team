@@ -12,7 +12,7 @@ export async function GET() {
   await dbConnect();
 
   const isAdmin =
-    (sessionClaims?.metadata as Record<string, unknown>)?.role === "admin";
+    (sessionClaims?.publicMetadata as Record<string, unknown>)?.role === "admin";
 
   const orders = isAdmin
     ? await Order.find({}).lean()
