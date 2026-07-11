@@ -14,7 +14,7 @@ export default function ProcessSection() {
       <div className="flex flex-col gap-6">
         {steps.map((step, idx) => (
           <div key={idx} className="flex gap-4">
-            <div className="text-white /bg-white/10 rounded-full w-8 h-8 flex items-center justify-center shrink-0">
+            <div className="hidden text-white /bg-white/10 rounded-full w-8 h-8 flex items-center justify-center shrink-0">
               {idx + 1}
             </div>
             <div className="flex flex-col">

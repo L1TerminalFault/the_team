@@ -39,7 +39,7 @@ export default function ServicesSection() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {services.map((s, idx) => (
           <div key={idx} className="flex flex-col gap-2">
-            <div className="text-gray-400 text-sm font-semibold">{s.num}</div>
+            <div className="hidden text-gray-400 text-sm font-semibold">{s.num}</div>
             <div className="text-gray-200 text-xl font-bold">{s.title}</div>
             <div className="text-gray-400 text-sm">{s.desc}</div>
           </div>

@@ -4,10 +4,10 @@ export default function HeroSection() {
       <div className="text-sm font-semibold tracking-widest uppercase text-gray-500">
         Asymptote Creative — Digital Excellence
       </div>
-      <div className="text-gray-200 font-bold text-7xl max-w-2xl leading-tight">
+      <div className="text-gray-200 font-bold text-6xl max-w-2xl leading-tight">
         Always approaching perfection.
       </div>
-      <div className="text-gray-300/80 text-sm font-light /tracking-wide max-w-[85%] /leading-relaxed">
+      <div className="text-gray-300/80 text-base /font-light /tracking-wide max-w-[85%] /leading-relaxed">
         We build brands, manage digital presence, and deliver the ERP System — a complete framework for performance, reach, and results.
       </div>
       <div className="flex gap-4 mt-2">
