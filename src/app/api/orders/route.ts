@@ -2,6 +2,7 @@ import { auth } from "@clerk/nextjs/server";
 import { dbConnect, Order } from "@/db/models";
 
 export async function GET() {
+	try {
   const { userId, sessionClaims } = await auth();
 
   if (!userId) {
@@ -18,6 +19,10 @@ export async function GET() {
     : await Order.find({ clerkId: userId }).lean();
 
   return Response.json(orders);
+	} catch (err) {
+		console.error("Error: ", err);
+    return Response.json({ error: err.message }, { status: 500 });
+	}
 }
 
 export async function POST(request: Request) {

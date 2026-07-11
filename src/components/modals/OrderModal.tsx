@@ -40,10 +40,12 @@ export default function OrderModal() {
       })
       .then((data) => {
         setOrders(data);
+	console.log("Data: ", data);
         setLoading(false);
       })
       .catch((err) => {
         setError(err.message);
+	console.log("Error: ", err);
         setLoading(false);
       });
   }, [isSignedIn, isLoaded]);
