@@ -5,7 +5,7 @@ import AnimatedLink from "./AnimatedLink";
 import { useModalStore } from "@/store/useModalStore";
 import gsap from "gsap";
 import { useEffect, useRef, useState } from "react";
-import { SignInButton, SignUpButton, Show } from "@clerk/nextjs";
+import { SignInButton, SignUpButton, Show, UserButton } from "@clerk/nextjs";
 
 export default function TopMenuSheet({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) {
   const { setActiveModal } = useModalStore();
