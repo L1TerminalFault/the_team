@@ -21,7 +21,6 @@ export default function SiteIcon({
     >
       <path
         className="hs-draw hs-d1"
-        pathLength="1"
         d="M40 520 L340 250 L640 40"
         stroke="currentColor"
         strokeWidth="10"
@@ -32,7 +31,6 @@ export default function SiteIcon({
 
       <path
         className="hs-draw hs-d2"
-        pathLength="1"
         d="M40 540 L370 300 L580 100"
         stroke="currentColor"
         strokeWidth="6"
@@ -43,7 +41,6 @@ export default function SiteIcon({
 
       <line
         className="hs-draw hs-d3"
-        pathLength="1"
         x1="40"
         y1="40"
         x2="40"
@@ -54,7 +51,6 @@ export default function SiteIcon({
 
       <line
         className="hs-draw hs-d4"
-        pathLength="1"
         x1="40"
         y1="540"
         x2="640"
