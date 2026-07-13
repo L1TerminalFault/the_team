@@ -7,6 +7,9 @@ import { FaFacebook, FaLinkedin, FaTwitter } from "react-icons/fa";
 import { SiTechcrunch } from "react-icons/si";
 import { SignInButton, SignUpButton, Show, UserButton } from "@clerk/nextjs";
 
+import SiteIcon from "./SiteIcon";
+import { useCubeStore } from "@/store/useCubeStore";
+
 import AnimatedLink from "./AnimatedLink";
 import TopMenuSheet from "./TopMenuSheet";
 import { useModalStore } from "@/store/useModalStore";
@@ -17,66 +20,68 @@ export default function TopBar() {
   const topBarRef = useRef<HTMLDivElement>(null);
 
   const { setActiveModal } = useModalStore();
+  const isCubeLoaded = useCubeStore((state) => state.isCubeLoaded);
+  const [introPhaseFinished, setIntroPhaseFinished] = useState(false);
+
   useEffect(() => {
-    const tl = gsap.timeline({ defaults: { ease: "power3.inOut" } });
-
-    // Ensure splash is visible
+    // Phase 1: Intro draw and fade
     gsap.set(".intro-splash", { opacity: 1, pointerEvents: "all" });
-    gsap.set(".splash-icon", { scale: 0, opacity: 0 });
-    gsap.set(".splash-tagline", { opacity: 0, y: 20 });
-    gsap.set(".splash-brand", { opacity: 0, y: 10 });
+    gsap.set(".splash-icon", { scale: 1 });
+    gsap.set(".splash-tagline", { opacity: 0, x: -20 });
+    gsap.set(".splash-brand", { opacity: 0, x: -20 });
+    gsap.set(".splash-icon .hs-draw", { strokeDasharray: 1, strokeDashoffset: 1 });
 
-    tl
-      // Phase 1: Icon blooms in at center
-      .to(".splash-icon", {
-        scale: 1,
-        opacity: 1,
-        duration: 1.2,
-        ease: "elastic.out(1, 0.6)",
+    const tlItems = gsap.timeline({
+      onComplete: () => setIntroPhaseFinished(true),
+    });
+
+    tlItems
+      .to(".splash-icon .hs-draw", {
+        strokeDashoffset: 0,
+        duration: 1.5,
+        ease: "power2.inOut",
+        stagger: 0.15,
       })
-      // Phase 2: Tagline fades in below
-      .to(".splash-brand", {
-        opacity: 1,
-        y: 0,
-        duration: 0.6,
-      }, "-=0.4")
-      .to(".splash-tagline", {
-        opacity: 1,
-        y: 0,
-        duration: 0.6,
-      }, "-=0.3")
-      // Phase 3: Hold for a beat
-      .to({}, { duration: 0.6 })
-      // Phase 4: Icon shrinks and moves to topbar corner
-      .to(".splash-icon", {
-        scale: 0.35,
-        x: () => {
-          const target = document.getElementById("ref");
-          if (!target) return -window.innerWidth / 2 + 80;
-          const rect = target.getBoundingClientRect();
-          return rect.left + 16 - window.innerWidth / 2;
-        },
-        y: () => {
-          const target = document.getElementById("ref");
-          if (!target) return -window.innerHeight / 2 + 50;
-          const rect = target.getBoundingClientRect();
-          return rect.top + 16 - window.innerHeight / 2;
-        },
-        duration: 0.8,
-        ease: "power4.inOut",
-      })
-      .to(".splash-tagline", { opacity: 0, y: -10, duration: 0.3 }, "-=0.8")
-      .to(".splash-brand", { opacity: 0, y: -10, duration: 0.3 }, "-=0.7")
-      // Phase 5: Overlay fades away
-      .to(".intro-splash", {
-        opacity: 0,
-        duration: 0.5,
-        ease: "power2.out",
-        onComplete: () => {
-          gsap.set(".intro-splash", { pointerEvents: "none", display: "none" });
-        },
-      });
+      .to(".splash-brand", { opacity: 1, x: 0, duration: 0.8 }, "-=0.5")
+      .to(".splash-tagline", { opacity: 1, x: 0, duration: 0.8 }, "-=0.6");
   }, []);
+
+  useEffect(() => {
+    if (introPhaseFinished && isCubeLoaded) {
+      const tl = gsap.timeline({ defaults: { ease: "power3.inOut" } });
+      tl.to({}, { duration: 0.6 }) // Phase 3: Hold for a beat
+        .to(".splash-icon", {
+          scale: 0.35,
+          x: () => {
+            const target = document.getElementById("ref-icon");
+            const start = document.querySelector(".splash-icon");
+            if (!target || !start) return window.innerWidth / -2 + 80;
+            const targetRect = target.getBoundingClientRect();
+            const startRect = start.getBoundingClientRect();
+            return targetRect.left + targetRect.width / 2 - (startRect.left + startRect.width / 2);
+          },
+          y: () => {
+            const target = document.getElementById("ref-icon");
+            const start = document.querySelector(".splash-icon");
+            if (!target || !start) return window.innerHeight / -2 + 50;
+            const targetRect = target.getBoundingClientRect();
+            const startRect = start.getBoundingClientRect();
+            return targetRect.top + targetRect.height / 2 - (startRect.top + startRect.height / 2);
+          },
+          duration: 0.8,
+          ease: "power4.inOut",
+        })
+        .to([".splash-tagline", ".splash-brand"], { opacity: 0, x: 20, duration: 0.3 }, "-=0.8")
+        .to(".intro-splash", {
+          opacity: 0,
+          duration: 0.5,
+          ease: "power2.out",
+          onComplete: () => {
+            gsap.set(".intro-splash", { pointerEvents: "none", display: "none" });
+          },
+        });
+    }
+  }, [introPhaseFinished, isCubeLoaded]);
 
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -84,21 +89,28 @@ export default function TopBar() {
     <>
       <div className="py-10 px-8 md:px-20 w-full flex items-center justify-between fixed top-0 left-0 z-40 bg-transparent">
         <div className="intro-splash fixed inset-0 z-[95] flex flex-col items-center justify-center bg-black pointer-events-none opacity-0">
-          <SiTechcrunch className="splash-icon size-28 md:size-36 text-white" />
-          <div className="splash-brand mt-6 text-2xl md:text-3xl font-extrabold tracking-tight text-white">
-            {company_name}
-          </div>
-          <div className="splash-tagline mt-3 text-sm md:text-base font-light tracking-widest uppercase text-gray-500">
-            Always approaching perfection
+          <div className="flex flex-row items-center justify-center gap-6 md:gap-8">
+            <SiteIcon className="splash-icon shrink-0 size-24 md:size-32 text-white" />
+            <div className="flex flex-col">
+              <div className="splash-brand text-2xl md:text-4xl font-extrabold tracking-tight text-white whitespace-nowrap">
+                {company_name}
+              </div>
+              <div className="splash-tagline mt-1 md:mt-2 text-xs md:text-sm font-light tracking-widest uppercase text-gray-500 whitespace-nowrap">
+                Always approaching perfection
+              </div>
+            </div>
           </div>
         </div>
 
         <div className="flex w-full items-center gap-3 justify-between">
           <div
             id="ref"
-            className="text-xl md:text-2xl font-extrabold text-gray-300 flex items-center gap-3 z-50 relative"
+            className="text-xl md:text-2xl font-extrabold text-gray-300 flex items-center gap-3 z-50 relative cursor-pointer group"
+            onMouseEnter={() => {
+              gsap.fromTo("#ref-icon .hs-draw", { strokeDashoffset: 1, strokeDasharray: 1 }, { strokeDashoffset: 0, duration: 1, ease: "power2.out", stagger: 0.1 });
+            }}
           >
-            <SiTechcrunch className="size-8 md:size-11" />
+            <SiteIcon id="ref-icon" className="size-8 md:size-11" />
             <AnimatedLink text={company_name} to="/home" />
           </div>
 

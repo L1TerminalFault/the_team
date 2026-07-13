@@ -1,4 +1,5 @@
 import { Canvas, useFrame } from "@react-three/fiber";
+import { useCubeStore } from "@/store/useCubeStore";
 import { useRef } from "react";
 import type * as THREE from "three";
 
@@ -57,6 +58,7 @@ export default function GlassCubeComponent({
       className={`absolute pointer-events-none /h-full /w-full ${className}`}
     >
       <Canvas
+        onCreated={() => useCubeStore.getState().setCubeLoaded(true)}
         dpr={[1, 1.5]}
         camera={{ position: [0, 0, 5], fov: 45 }}
         gl={{

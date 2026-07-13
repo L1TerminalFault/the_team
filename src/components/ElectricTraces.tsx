@@ -64,7 +64,15 @@ const traceData = [
   // === Cross shapes (two perpendicular segments) ===
   { d: "M 300,480 L 400,480 M 350,450 L 350,510", opacity: 0.05 },
   { d: "M 750,650 L 830,650 M 790,620 L 790,680", opacity: 0.07 },
+
+  // === Extra Bright & Long Traces (Enhancements) ===
+  { d: "M -100,50 L 300,50 L 350,100 L 800,100 L 850,50 L 1200,50", opacity: 0.25, bright: true },
+  { d: "M -50,880 L 250,880 L 280,850 L 650,850 L 700,900 L 1100,900", opacity: 0.2, bright: true },
+  { d: "M 150,-50 L 150,250 L 180,280 L 180,600 L 210,630 L 500,630", opacity: 0.2, bright: true },
+  { d: "M 850,1100 L 850,750 L 820,720 L 820,300 L 850,270 L 850,-50", opacity: 0.25, bright: true },
+  { d: "M 0,200 L 400,200 L 450,250 L 600,250 L 650,200 L 1000,200", opacity: 0.18, bright: true },
 ];
+
 
 export default function ElectricTraces() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -122,21 +130,26 @@ export default function ElectricTraces() {
             <stop offset="50%" stopColor="#aaa" stopOpacity="1" />
             <stop offset="100%" stopColor="#666" stopOpacity="0" />
           </linearGradient>
+          <linearGradient id="electric-glow-bright" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stopColor="#888" stopOpacity="0" />
+            <stop offset="50%" stopColor="#fff" stopOpacity="1" />
+            <stop offset="100%" stopColor="#888" stopOpacity="0" />
+          </linearGradient>
           <filter id="glow" x="-10%" y="-10%" width="120%" height="120%">
             <feGaussianBlur stdDeviation="1.5" result="blur" />
             <feComposite in="SourceGraphic" in2="blur" operator="over" />
           </filter>
         </defs>
 
-        {traceData.map((t, i) => (
+        {traceData.map((t: any, i: number) => (
           <path
             key={i}
             className="electric-path"
             d={t.d}
             data-opacity={t.opacity}
             fill="none"
-            stroke="url(#electric-glow)"
-            strokeWidth={1}
+            stroke={t.bright ? "url(#electric-glow-bright)" : "url(#electric-glow)"}
+            strokeWidth={t.bright ? 1.5 : 1}
             opacity={t.opacity}
             filter="url(#glow)"
           />
