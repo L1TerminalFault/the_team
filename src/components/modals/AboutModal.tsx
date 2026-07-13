@@ -4,8 +4,8 @@ import { FaUser } from "react-icons/fa";
 const founders = [
   { name: "Kemal Esak", role: "CEO · Founder", photo: "/kemal.jpeg" },
   { name: "Israel Abdu", role: "VP · Co-Founder", photo: null },
-  { name: "Ketsebot", role: "Co-Founder", photo: null },
-  { name: "Kalab", role: "Co-Founder", photo: null },
+  { name: "Ketsebaot", role: "Co-Founder", photo: null },
+  { name: "Kaleab", role: "Co-Founder", photo: null },
 ];
 
 export default function AboutModal() {
@@ -35,7 +35,7 @@ export default function AboutModal() {
                     className="size-full object-cover"
                   />
                 ) : (
-                  <div className="size-full flex items-center justify-center bg-gradient-to-br from-gray-700 to-gray-900">
+                  <div className="size-full flex items-center justify-center /bg-gradient-to-br /from-gray-700 /to-gray-900">
                     <FaUser className="text-gray-500 text-3xl" />
                   </div>
                 )}
