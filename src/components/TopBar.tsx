@@ -6,9 +6,12 @@ import Link from "next/link";
 import { FaFacebook, FaLinkedin, FaTwitter } from "react-icons/fa";
 import { SiTechcrunch } from "react-icons/si";
 import { SignInButton, SignUpButton, Show, UserButton } from "@clerk/nextjs";
+import { DrawSVGPlugin } from "gsap/DrawSVGPlugin";
 
 import SiteIcon from "./SiteIcon";
 import { useCubeStore } from "@/store/useCubeStore";
+
+gsap.registerPlugin(DrawSVGPlugin);
 
 import AnimatedLink from "./AnimatedLink";
 import TopMenuSheet from "./TopMenuSheet";
@@ -25,11 +28,12 @@ export default function TopBar() {
 
   useEffect(() => {
     // Phase 1: Intro draw and fade
-    gsap.set(".intro-splash", { opacity: 1, pointerEvents: "all" });
+    // Note: CSS now starts .intro-splash with opacity-100 pointer-events-auto to prevent FOUC.
     gsap.set(".splash-icon", { scale: 1 });
     gsap.set(".splash-tagline", { opacity: 0, x: -20 });
     gsap.set(".splash-brand", { opacity: 0, x: -20 });
-    gsap.set(".splash-icon .hs-draw", { strokeDasharray: 1, strokeDashoffset: 1 });
+    // Initialize paths at 0 draw
+    gsap.set(".splash-icon .hs-draw", { drawSVG: "0%" });
 
     const tlItems = gsap.timeline({
       onComplete: () => setIntroPhaseFinished(true),
@@ -37,7 +41,7 @@ export default function TopBar() {
 
     tlItems
       .to(".splash-icon .hs-draw", {
-        strokeDashoffset: 0,
+        drawSVG: "100%",
         duration: 1.5,
         ease: "power2.inOut",
         stagger: 0.15,
@@ -88,7 +92,7 @@ export default function TopBar() {
   return (
     <>
       <div className="py-10 px-8 md:px-20 w-full flex items-center justify-between fixed top-0 left-0 z-40 bg-transparent">
-        <div className="intro-splash fixed inset-0 z-[95] flex flex-col items-center justify-center bg-black pointer-events-none opacity-0">
+        <div className="intro-splash fixed inset-0 z-[95] flex flex-col items-center justify-center bg-black opacity-100 pointer-events-auto">
           <div className="flex flex-row items-center justify-center gap-6 md:gap-8">
             <SiteIcon className="splash-icon shrink-0 size-24 md:size-32 text-white" />
             <div className="flex flex-col">
@@ -107,7 +111,7 @@ export default function TopBar() {
             id="ref"
             className="text-xl md:text-2xl font-extrabold text-gray-300 flex items-center gap-3 z-50 relative cursor-pointer group"
             onMouseEnter={() => {
-              gsap.fromTo("#ref-icon .hs-draw", { strokeDashoffset: 1, strokeDasharray: 1 }, { strokeDashoffset: 0, duration: 1, ease: "power2.out", stagger: 0.1 });
+              gsap.fromTo("#ref-icon .hs-draw", { drawSVG: "0%" }, { drawSVG: "100%", duration: 1, ease: "power2.out", stagger: 0.1 });
             }}
           >
             <SiteIcon id="ref-icon" className="size-8 md:size-11" />
@@ -128,6 +132,10 @@ export default function TopBar() {
             </button>
 
             <div className="hidden xl:flex items-center w-full font-medium gap-4 lg:gap-8 justify-between text-base lg:text-lg mr-4">
+              <AnimatedLink
+                text="Projects"
+                onClick={() => setActiveModal("projects")}
+              />
               <AnimatedLink
                 text="Order"
                 onClick={() => setActiveModal("order")}

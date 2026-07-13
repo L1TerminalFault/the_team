@@ -11,6 +11,7 @@ import gsap from "gsap";
 import TermsModal from "@/components/modals/TermsModal";
 import CookieModal from "@/components/modals/CookieModal";
 import PrivacyModal from "@/components/modals/PrivacyModal";
+import ProjectsModal from "@/components/modals/ProjectsModal";
 import { useModalStore } from "@/store/useModalStore";
 
 export default function RouteModal() {
@@ -32,6 +33,8 @@ export default function RouteModal() {
     content = <AboutModal />;
   } else if (activeModal === "contact") {
     content = <ContactModal />;
+  } else if (activeModal === "projects") {
+    content = <ProjectsModal />;
   } else if (activeModal === "faq") {
     content = <FaqModal />;
   } else if (activeModal === "order") {
