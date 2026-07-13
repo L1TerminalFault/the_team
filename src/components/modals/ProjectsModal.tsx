@@ -1,12 +1,11 @@
 import React from "react";
-import { FaExternalLinkAlt, FaImage } from "react-icons/fa";
+import { FaExternalLinkAlt } from "react-icons/fa";
 
 const projects = [
   {
     name: "Aliya Construction",
     url: "https://aliyaconstructionpls-eth.com",
     description: "A comprehensive digital presence for a leading construction and engineering firm.",
-    image: null, // "i will add when available"
   },
 ];
 
@@ -41,16 +40,13 @@ export default function ProjectsModal() {
               </div>
               
               <div className="relative w-full aspect-video rounded-2xl overflow-hidden ring-1 ring-white/10 bg-[#0a0a0a] shadow-2xl flex items-center justify-center group-hover:ring-white/20 transition-all">
-                {p.image ? (
-                  <img src={p.image} alt={p.name} className="size-full object-cover" />
-                ) : (
-                  <div className="text-gray-600 text-sm tracking-widest uppercase flex flex-col items-center gap-3">
-                    <div className="size-12 rounded-full border border-gray-800 flex items-center justify-center">
-                      <FaImage className="text-lg text-gray-700" />
-                    </div>
-                    Preview Palette Pending
-                  </div>
-                )}
+                {/* Dynamically loads a snapshot of the URL at runtime */}
+                <img 
+                  src={`https://s0.wp.com/mshots/v1/${encodeURIComponent(p.url)}?w=1000`} 
+                  alt={p.name} 
+                  className="size-full object-cover" 
+                  loading="lazy"
+                />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent z-10 pointer-events-none"></div>
               </div>
             </div>
