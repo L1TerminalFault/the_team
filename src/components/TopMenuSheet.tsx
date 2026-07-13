@@ -51,6 +51,7 @@ export default function TopMenuSheet({ isOpen, onClose }: { isOpen: boolean; onC
         </button>
         <div className="w-full h-full flex flex-col items-center justify-center gap-8 py-10 text-gray-200">
           <div className="flex flex-col items-center font-medium gap-8 text-2xl">
+            <AnimatedLink text="Projects" onClick={() => handleLink("projects")} />
             <AnimatedLink text="Order" onClick={() => handleLink("order")} />
             <AnimatedLink text="Contact Us" onClick={() => handleLink("contact")} />
             <AnimatedLink text="FAQ" onClick={() => handleLink("faq")} />
