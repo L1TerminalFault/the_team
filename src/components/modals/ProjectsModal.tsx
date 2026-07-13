@@ -39,7 +39,7 @@ export default function ProjectsModal() {
                 </a>
               </div>
               
-              <div className="relative w-full aspect-video rounded-2xl overflow-hidden ring-1 ring-white/10 bg-[#0a0a0a] shadow-2xl flex items-center justify-center group-hover:ring-white/20 transition-all">
+              <div className="relative hidden w-full aspect-video rounded-2xl overflow-hidden ring-1 ring-white/10 bg-[#0a0a0a] shadow-2xl flex items-center justify-center group-hover:ring-white/20 transition-all">
                 {/* Dynamically loads a snapshot of the URL at runtime */}
                 <img 
                   src={`https://s0.wp.com/mshots/v1/${encodeURIComponent(p.url)}?w=1000`} 
