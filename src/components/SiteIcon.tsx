@@ -31,43 +31,35 @@ export default function SiteIcon({
       </defs>
 
       <path
-        className="hs-draw hs-d1"
-        d="M40 520 Q120 460 220 360 Q320 260 420 160 Q500 80 640 40"
+        className="hs-draw hs-trace1"
+        d="M 60,510 L 80,510 L 120,470 L 120,380 L 190,310 L 250,310 L 350,210 L 420,210 L 520,110 L 610,110 L 640,80"
         stroke="url(#glow-grad)"
-        strokeWidth="3"
-        strokeLinecap="round"
+        strokeWidth="10"
+        strokeLinecap="square"
+        strokeLinejoin="miter"
         fill="none"
         filter="url(#svg-glow)"
       ></path>
       <path
-        className="hs-draw hs-d2"
-        d="M40 540 Q160 480 300 360 Q440 240 580 100"
+        className="hs-draw hs-trace2"
+        d="M 60,530 L 110,530 L 170,470 L 210,470 L 290,390 L 340,390 L 450,280 L 500,280 L 580,200 L 640,200"
         stroke="url(#glow-grad)"
-        strokeWidth="1.2"
-        strokeLinecap="round"
+        strokeWidth="6"
+        strokeLinecap="square"
+        strokeLinejoin="miter"
         fill="none"
         filter="url(#svg-glow)"
       ></path>
-      <line
-        className="hs-draw hs-d3"
-        x1="40"
-        y1="40"
-        x2="40"
-        y2="540"
+      <path
+        className="hs-draw hs-axis"
+        d="M 40,40 L 40,540 L 640,540"
         stroke="url(#glow-grad)"
-        strokeWidth="2"
+        strokeWidth="8"
+        strokeLinecap="square"
+        strokeLinejoin="miter"
+        fill="none"
         filter="url(#svg-glow)"
-      ></line>
-      <line
-        className="hs-draw hs-d4"
-        x1="40"
-        y1="540"
-        x2="640"
-        y2="540"
-        stroke="url(#glow-grad)"
-        strokeWidth="2"
-        filter="url(#svg-glow)"
-      ></line>
+      ></path>
     </svg>
   );
 }

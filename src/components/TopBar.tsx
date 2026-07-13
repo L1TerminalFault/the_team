@@ -29,7 +29,7 @@ export default function TopBar() {
   useEffect(() => {
     // Phase 1: Intro draw and fade
     // Note: CSS now starts .intro-splash with opacity-100 pointer-events-auto to prevent FOUC.
-    gsap.set(".splash-icon", { scale: 1 });
+    gsap.set(".splash-icon", { opacity: 1, scale: 1 });
     gsap.set(".splash-tagline", { opacity: 0, x: -20 });
     gsap.set(".splash-brand", { opacity: 0, x: -20 });
     // Initialize paths at 0 draw
@@ -94,12 +94,12 @@ export default function TopBar() {
       <div className="py-10 px-8 md:px-20 w-full flex items-center justify-between fixed top-0 left-0 z-40 bg-transparent">
         <div className="intro-splash fixed inset-0 z-[95] flex flex-col items-center justify-center bg-black opacity-100 pointer-events-auto">
           <div className="flex flex-row items-center justify-center gap-6 md:gap-8">
-            <SiteIcon className="splash-icon shrink-0 size-24 md:size-32 text-white" />
+            <SiteIcon className="splash-icon shrink-0 size-24 md:size-32 text-white opacity-0" />
             <div className="flex flex-col">
-              <div className="splash-brand text-2xl md:text-4xl font-extrabold tracking-tight text-white whitespace-nowrap">
+              <div className="splash-brand text-2xl md:text-4xl font-extrabold tracking-tight text-white whitespace-nowrap opacity-0">
                 {company_name}
               </div>
-              <div className="splash-tagline mt-1 md:mt-2 text-xs md:text-sm font-light tracking-widest uppercase text-gray-500 whitespace-nowrap">
+              <div className="splash-tagline mt-1 md:mt-2 text-xs md:text-sm font-light tracking-widest uppercase text-gray-500 whitespace-nowrap opacity-0">
                 Always approaching perfection
               </div>
             </div>
