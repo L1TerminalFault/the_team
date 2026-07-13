@@ -47,7 +47,7 @@ export default function FaqModal() {
 
         <div>
            <h3 className="text-2xl font-semibold mb-2 text-white">Who owns the intellectual property and code post-development?</h3>
-           <p>Upon full settlement of our invoices, you own the final product deliverables completely. You receive absolute rights to use the software and the creative brand assets produced. The Team does retain rights to our underlying proprietary boilerplate architectures and baseline tools used to build your systems, granting you a perpetual license to use them as integrated in your project.</p>
+           <p>Upon full settlement of our invoices, you own the final product deliverables completely. You receive absolute rights to use the software and the creative brand assets produced. Asymptote does retain rights to our underlying proprietary boilerplate architectures and baseline tools used to build your systems, granting you a perpetual license to use them as integrated in your project.</p>
         </div>
 
       </div>

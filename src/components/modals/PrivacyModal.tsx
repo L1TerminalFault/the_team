@@ -6,7 +6,7 @@ export default function PrivacyModal() {
       <h1 className="text-4xl font-bold mb-8 text-white">Privacy Policy</h1>
       <div className="prose prose-invert max-w-none text-gray-300 space-y-6">
         <p className="text-lg">
-          At The Team, we consider the privacy and security of your corporate and personal data to be an uncompromisable foundation of our digital operations. Our infrastructure is designed from the ground up prioritizing zero-trust architecture, rigorous encryption, and absolute compliance with global data protection frameworks.
+          At Asymptote, we consider the privacy and security of your corporate and personal data to be an uncompromisable foundation of our digital operations. Our infrastructure is designed from the ground up prioritizing zero-trust architecture, rigorous encryption, and absolute compliance with global data protection frameworks.
         </p>
 
         <h2 className="text-2xl font-semibold mt-8 mb-4 text-white">1. Information We Collect</h2>
@@ -55,7 +55,7 @@ export default function PrivacyModal() {
 
         <h2 className="text-2xl font-semibold mt-8 mb-4 text-white">7. Security Breach Notification</h2>
         <p>
-          In the highly unlikely event of a security breach that genuinely threatens the confidentiality of your data, The Team follows a rapid incident response protocol. We guarantee to notify affected clients within 72 hours of confirming such an event, detailing the scope of the breach and the immediate remedial actions taken by our cybersecurity teams.
+          In the highly unlikely event of a security breach that genuinely threatens the confidentiality of your data, Asymptote follows a rapid incident response protocol. We guarantee to notify affected clients within 72 hours of confirming such an event, detailing the scope of the breach and the immediate remedial actions taken by our cybersecurity teams.
         </p>
       </div>
     </>

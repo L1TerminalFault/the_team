@@ -9,7 +9,7 @@ export default function TermsModal() {
           By utilizing our highly specialized software engineering and social media management services, you agree to be bound by the extensive terms detailed below. 
         </p>
         <p>
-          These Terms of Service constitute a legally binding agreement between you (the "Client") and The Team (the "Agency"). Please read these terms carefully before engaging our services or accessing our proprietary platforms.
+          These Terms of Service constitute a legally binding agreement between you (the "Client") and Asymptote Creative (the "Agency"). Please read these terms carefully before engaging our services or accessing our proprietary platforms.
         </p>
 
         <h2 className="text-2xl font-semibold mt-8 mb-4 text-white">Section 1: Scope of Software Engineering Services</h2>
@@ -22,7 +22,7 @@ export default function TermsModal() {
 
         <h2 className="text-2xl font-semibold mt-8 mb-4 text-white">Section 2: Social Media Management & Marketing</h2>
         <p>
-          For our social media and digital marketing services, The Team operates as a strategic partner charged with enhancing brand visibility. We manage content creation, community engagement, influencer outreach, and paid advertising campaigns based on an mutually approved strategic roadmap.
+          For our social media and digital marketing services, Asymptote operates as a strategic partner charged with enhancing brand visibility. We manage content creation, community engagement, influencer outreach, and paid advertising campaigns based on an mutually approved strategic roadmap.
         </p>
         <p>
           The Agency retains creative control over the execution of the marketing strategies while remaining strictly aligned with the Client's brand guidelines. While we leverage data-driven methodologies to maximize engagement and ROI, we cannot guarantee specific follower counts, virality metrics, or absolute conversion rates due to the unpredictable nature of proprietary social networking algorithms.
@@ -30,10 +30,10 @@ export default function TermsModal() {
 
         <h2 className="text-2xl font-semibold mt-8 mb-4 text-white">Section 3: Intellectual Property & Source Code Ownership</h2>
         <p>
-          Upon full and final payment of all invoices related to a specific project, The Team transfers to the Client the operational rights and ownership of the final deliverables (e.g., the compiled application, finalized brand assets). 
+          Upon full and final payment of all invoices related to a specific project, Asymptote transfers to the Client the operational rights and ownership of the final deliverables (e.g., the compiled application, finalized brand assets). 
         </p>
         <p>
-          Notwithstanding the foregoing, The Team retains all rights, title, and interest in our underlying proprietary code libraries, boilerplate architectures, frameworks, and bespoke internal tools utilized to construct the Client's product. The Agency grants the Client a non-exclusive, perpetual, royalty-free license to use these underlying tools solely as integrated within the final product.
+          Notwithstanding the foregoing, Asymptote retains all rights, title, and interest in our underlying proprietary code libraries, boilerplate architectures, frameworks, and bespoke internal tools utilized to construct the Client's product. The Agency grants the Client a non-exclusive, perpetual, royalty-free license to use these underlying tools solely as integrated within the final product.
         </p>
 
         <h2 className="text-2xl font-semibold mt-8 mb-4 text-white">Section 4: Financial Terms & Invoicing</h2>
@@ -51,7 +51,7 @@ export default function TermsModal() {
 
         <h2 className="text-2xl font-semibold mt-8 mb-4 text-white">Section 6: Limitation of Liability</h2>
         <p>
-          To the maximum extent permitted by applicable law, in no event shall The Team, its directors, employees, or partners be liable to the Client for any indirect, incidental, special, consequential, or punitive damages. This includes, without limitation, loss of profits, data corruption, usage deprivation, or loss of goodwill resulting from your access to or inability to use our services, whether based explicitly on warranty, contract, tort (including negligence), or any other legal theory.
+          To the maximum extent permitted by applicable law, in no event shall Asymptote, its directors, employees, or partners be liable to the Client for any indirect, incidental, special, consequential, or punitive damages. This includes, without limitation, loss of profits, data corruption, usage deprivation, or loss of goodwill resulting from your access to or inability to use our services, whether based explicitly on warranty, contract, tort (including negligence), or any other legal theory.
         </p>
 
         <h2 className="text-2xl font-semibold mt-8 mb-4 text-white">Section 7: Termination Protocols</h2>

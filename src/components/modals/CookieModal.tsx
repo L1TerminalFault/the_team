@@ -6,7 +6,7 @@ export default function CookieModal() {
       <h1 className="text-4xl font-bold mb-8 text-white">Cookie Policy</h1>
       <div className="prose prose-invert max-w-none text-gray-300 space-y-6">
         <p className="text-lg">
-          At The Team, we utilize advanced web technologies to ensure that your experience on our platform is as seamless, secure, and personalized as our bespoke software solutions. This comprehensive Cookie Policy explains how and why we use cookies and similar tracking technologies.
+          At Asymptote, we utilize advanced web technologies to ensure that your experience on our platform is as seamless, secure, and personalized as our bespoke software solutions. This comprehensive Cookie Policy explains how and why we use cookies and similar tracking technologies.
         </p>
 
         <h2 className="text-2xl font-semibold mt-8 mb-4 text-white">1. What Are Cookies?</h2>

@@ -1,4 +1,12 @@
 import React from "react";
+import { FaUser } from "react-icons/fa";
+
+const founders = [
+  { name: "Kemal Esak", role: "CEO · Founder", photo: "/kemal.jpeg" },
+  { name: "Israel Abdu", role: "VP · Co-Founder", photo: null },
+  { name: "Ketsebot", role: "Co-Founder", photo: null },
+  { name: "Kalab", role: "Co-Founder", photo: null },
+];
 
 export default function AboutModal() {
   return (
@@ -6,30 +14,38 @@ export default function AboutModal() {
       <h1 className="text-4xl font-bold mb-8 text-white">About Us</h1>
       <div className="prose prose-invert max-w-none text-gray-300 space-y-6">
         <p className="text-lg">
-          Welcome to <strong>The Team</strong>, the nexus where high-performance software engineering meets dynamic social media strategy. We are an avant-garde digital agency steadfastly committed to elevating your brand far beyond the ordinary.
+          Welcome to <strong>Asymptote Creative</strong>, the nexus where high-performance software engineering meets dynamic social media strategy. We are an avant-garde digital agency steadfastly committed to elevating your brand far beyond the ordinary.
         </p>
 
-      <div className="flex flex-col gap-8 mt-4">
+      <div className="flex flex-col gap-6 mt-4">
         <div className="text-sm font-semibold tracking-widest uppercase text-gray-500">
           Our Founders
         </div>
-        <div className="grid grid-cols-2 gap-8">
-          <div className="flex flex-col gap-2">
-            <div className="text-2xl font-light text-gray-200">Kemal Esak</div>
-            <div className="text-sm text-gray-400">CEO &middot; Founder</div>
-          </div>
-          <div className="flex flex-col gap-2">
-            <div className="text-2xl font-light text-gray-200">Israel Abdu</div>
-            <div className="text-sm text-gray-400">VP &middot; Co-Founder</div>
-          </div>
-          <div className="flex flex-col gap-2">
-            <div className="text-2xl font-light text-gray-200">Ketsebot</div>
-            <div className="text-sm text-gray-400">Co-Founder</div>
-          </div>
-          <div className="flex flex-col gap-2">
-            <div className="text-2xl font-light text-gray-200">Kalab</div>
-            <div className="text-sm text-gray-400">Co-Founder</div>
-          </div>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+          {founders.map((f) => (
+            <div
+              key={f.name}
+              className="group flex flex-col items-center gap-3 rounded-2xl border border-white/5 bg-white/[0.03] p-5 transition-all duration-300 hover:bg-white/[0.06] hover:border-white/10"
+            >
+              <div className="relative size-24 rounded-full overflow-hidden ring-2 ring-white/10 group-hover:ring-white/20 transition-all duration-300">
+                {f.photo ? (
+                  <img
+                    src={f.photo}
+                    alt={f.name}
+                    className="size-full object-cover"
+                  />
+                ) : (
+                  <div className="size-full flex items-center justify-center bg-gradient-to-br from-gray-700 to-gray-900">
+                    <FaUser className="text-gray-500 text-3xl" />
+                  </div>
+                )}
+              </div>
+              <div className="text-center">
+                <div className="text-base font-medium text-gray-200">{f.name}</div>
+                <div className="text-xs text-gray-500 mt-0.5">{f.role}</div>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
 
@@ -48,7 +64,7 @@ export default function AboutModal() {
 
         <h2 className="text-2xl font-semibold mt-8 mb-4 text-white">Strategic Social Management</h2>
         <p>
-          In tandem with our software solutions, our social management services are engineered to amplify your brand's digital resonance. The Team is composed of veteran creative directors, data scientists, and community architects who understand that social media is a fluid, ever-evolving ecosystem. We don’t just post content; we orchestrate highly targeted digital narratives.
+          In tandem with our software solutions, our social management services are engineered to amplify your brand's digital resonance. Asymptote is composed of veteran creative directors, data scientists, and community architects who understand that social media is a fluid, ever-evolving ecosystem. We don’t just post content; we orchestrate highly targeted digital narratives.
         </p>
         <p>
           Our methodologies rely on advanced analytics to decode audience behavior, allowing us to pivot strategies in real time and maximize return on ad spend (ROAS). From producing high-fidelity video campaigns and crafting viral organic content to managing intricate influencer networks and executing comprehensive crisis communication strategies, our social division acts as an extension of your brand's core identity.
@@ -64,7 +80,7 @@ export default function AboutModal() {
 
         <h2 className="text-2xl font-semibold mt-8 mb-4 text-white">Looking to the horizon</h2>
         <p>
-          Furthermore, our commitment to excellence drives us to constantly innovate. As the tech landscape shifts towards Artificial Intelligence integrations, Web3 infrastructure, and spatial computing, our R&D departments are already charting the course to integrate these tools organically into our clients' tech stacks. Whether you are a promising startup looking to establish your digital footprint or a multinational corporation aiming to modernize legacy systems, The Team is ready to catalyze your success.
+          Furthermore, our commitment to excellence drives us to constantly innovate. As the tech landscape shifts towards Artificial Intelligence integrations, Web3 infrastructure, and spatial computing, our R&D departments are already charting the course to integrate these tools organically into our clients' tech stacks. Whether you are a promising startup looking to establish your digital footprint or a multinational corporation aiming to modernize legacy systems, Asymptote is ready to catalyze your success.
         </p>
 
       </div>
